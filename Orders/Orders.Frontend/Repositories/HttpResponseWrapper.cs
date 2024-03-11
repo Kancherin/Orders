@@ -7,13 +7,13 @@ namespace Orders.Frontend.Repositories
         public HttpResponseWrapper(T? response, bool error, HttpResponseMessage httpResponseMessage)
         {
             Error = error;
-            ActionResponse = response;
+            Response = response;
             HttpResponseMessage = httpResponseMessage;
         }
 
         public bool Error { get; set; }
 
-        public T? ActionResponse { get; set; }
+        public T? Response { get; set; }
 
         public HttpResponseMessage HttpResponseMessage { get; set; }
 

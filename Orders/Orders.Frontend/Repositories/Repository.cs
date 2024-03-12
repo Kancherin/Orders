@@ -23,7 +23,7 @@ namespace Orders.Frontend.Repositories
             var responseHttp = await _httpClient.GetAsync(url);
             if (responseHttp.IsSuccessStatusCode)
             {
-                var response = await UnserializeAnswer<T>(responseHttp);
+                var response = await UnserializeAnswerAsync<T>(responseHttp);
                 return new HttpResponseWrapper<T>(response, false, responseHttp);
             }
 

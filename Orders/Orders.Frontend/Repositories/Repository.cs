@@ -53,7 +53,13 @@ namespace Orders.Frontend.Repositories
             return new HttpResponseWrapper<TActionResponse>(default, !responseHttp.IsSuccessStatusCode, responseHttp);
         }
 
-        public async Task<HttpResponseWrapper<object>> DeleteAsync(string url)
+        //public async Task<HttpResponseWrapper<object>> DeleteAsync(string url)
+        //{
+        //    var responseHttp = await _httpClient.DeleteAsync(url);
+        //    return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
+        //}
+
+        public async Task<HttpResponseWrapper<object>> DeleteAsync<T>(string url)
         {
             var responseHttp = await _httpClient.DeleteAsync(url);
             return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
@@ -87,5 +93,6 @@ namespace Orders.Frontend.Repositories
             return JsonSerializer.Deserialize<T>(response, _jsonDefaultOptions)!;
         }
 
+        
     }
 }
